@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.remove-div{
+				width:260px;
+				height: 32px;
+				line-height: 32px;
+				position: relative;
+				
+			}
+			#search{
+				width:100%;
+				height:30px;
+				border:1px solid #ddd;
+				padding-right:35px;
+				padding-left:10px;
+				box-sizing: border-box;
+			}
+			.remove-icon{
+				position: absolute;
+				width:20px;
+				height:20px;
+				border-radius:50%;
+				background: #ddd;
+				top:6px;
+				right:10px;
+				display: none;
+			}
+			.remove-icon:hover{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="remove-div">
+			<span id="removeIcon" class="remove-icon"></span>
+			<input id="search" type="text" name="" id="" value="" />
+		</div>
+		<script type="text/javascript">
+			var searchDom = document.getElementById("search");
+			var removeIconDom = document.getElementById("removeIcon");
+			searchDom.oninput = function(){
+				if(searchDom.value.length>0){
+					removeIconDom.style.display = 'block';
+				}else{
+					removeIconDom.style.display = 'none';
+				}
+			}
+			removeIconDom.onclick = function(){
+				searchDom.value = '';
+				this.style.display = 'none';
+			}
+		</script>
+	</body>
+</html>
